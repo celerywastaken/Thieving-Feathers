@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class CollectScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private PlayerMovement player;
+    [SerializeField] private Transform pickUpTransform;
+    
     void Start()
     {
-        
+        player = GetComponentInParent<PlayerMovement>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Collectable")) 
+        { player.CollectItem(other.transform); }
+    }
+
+      
 }

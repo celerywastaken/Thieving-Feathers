@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float horizontalInput;
-    public float verticalInput;
+    private float horizontalInput;
+    private float verticalInput;
+
     private Vector2 moveDirection;
+
     private float xRange = 8;
     private float yRange = 5;
 
     public float speed = 10.0f;
 
-    public Rigidbody2D playerRb;
-    // Start is called before the first frame update
+    [SerializeField] private Transform pickUpTransform;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         GetInput();
@@ -53,5 +53,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (transform.position.y > yRange)
         { transform.position = new Vector2(transform.position.x, yRange); }
+    }
+
+    public void CollectItem(Transform itemToCollect)
+    {
+        itemToCollect.position = pickUpTransform.position;
+        itemToCollect.SetParent(pickUpTransform);
+        
     }
 }
