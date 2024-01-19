@@ -9,8 +9,10 @@ public class CollectScript : MonoBehaviour
     private PlayerMovement player;
     [SerializeField] private Transform pickUpTransform;
 
-    public bool hasCollectable;
+    private Collectables pickedUpCollectable = Collectables.None;
 
+    public bool hasCollectable;
+    public Collectables GetPickedUpCollectable() { return pickedUpCollectable; }
     void Start()
     {
         player = GetComponentInParent<PlayerMovement>();
@@ -23,11 +25,10 @@ public class CollectScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Collectable") && !hasCollectable)
+        if (other.CompareTag("Collectable") && !hasCollectable) 
         {
-            Debug.Log("collided with collectable");
-            player.CollectItem(other.transform);
-            hasCollectable = true;
+           pickedUpCollectable = other.GetComponent<CollecatableBehaviour>().GetCollectableType();
+            player.SetCollectable(pickedUpCollectable);
         }
 
     }

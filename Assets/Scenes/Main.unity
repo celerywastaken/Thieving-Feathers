@@ -2286,6 +2286,7 @@ GameObject:
   - component: {fileID: 1323838541}
   - component: {fileID: 1323838543}
   - component: {fileID: 1323838544}
+  - component: {fileID: 1323838545}
   m_Layer: 0
   m_Name: CollectTransform
   m_TagString: Untagged
@@ -2367,6 +2368,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1323838545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323838540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2972a107ab18b4cadd8d25c92da85d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1527463342
 GameObject:
   m_ObjectHideFlags: 0
@@ -3089,6 +3102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiManager: {fileID: 0}
   collectScript: {fileID: 0}
+  playerMovement: {fileID: 0}
   pointValue: 1
 --- !u!70 &411074621884201474
 CapsuleCollider2D:
@@ -3350,6 +3364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiManager: {fileID: 0}
   collectScript: {fileID: 0}
+  playerMovement: {fileID: 0}
   pointValue: 3
 --- !u!58 &3140174304069148473
 CircleCollider2D:
@@ -3692,6 +3707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiManager: {fileID: 0}
   collectScript: {fileID: 0}
+  playerMovement: {fileID: 0}
   pointValue: 1
 --- !u!1 &7658392094633571671
 GameObject:

@@ -8,6 +8,8 @@ public class NPCMovement : MonoBehaviour
     private float maxspeed = 4.0f;
     private float leftBound = -20;
     private float randomSpeed;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,8 @@ public class NPCMovement : MonoBehaviour
         //destroy out of bounds
         if (transform.position.x < leftBound)
         {
-            Destroy(gameObject);
+            SpawnManager.instance.ReturnBackToPool(gameObject);
+            // Destroy(gameObject);
         }
     }
 }

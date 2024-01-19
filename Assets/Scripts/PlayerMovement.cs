@@ -15,11 +15,16 @@ public class PlayerMovement : MonoBehaviour
 
     private float speed = 6.0f;
 
+    public Transform collectableOwnerTransform { get; private set; }
+    public Vector3 collectablePosition { get; private set; }
+
 
     public Rigidbody2D player;
     public SpriteRenderer spriteRenderer;
 
    [SerializeField] private Transform pickUpTransform;
+
+    [SerializeField] private CollectableItem[] collectables;
     
     void Start()
     {
@@ -70,12 +75,40 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("player collect function");
 
         //Sets the Collected Items Position to the PickUp Position
-        itemToCollect.position = pickUpTransform.position;
+             itemToCollect.position = pickUpTransform.position;
 
         //Makes the Collected Item a Child of the PickUp Transform
         itemToCollect.SetParent(pickUpTransform);
     }
 
+    public void SetCollectable(Collectables collectableType)
+    {
+        foreach (var item in collectables)
+        {
+            if(item.GetCollectableType() == collectableType)
+            {
+                item.gameObject.SetActive(true);
+            }
+            else
+            {
+                item.gameObject.SetActive(false);
+            }
+        }
+    }
+    public void DropCollectable(Collectables collectableType)
+    {
+        foreach (var item in collectables)
+        {
+            if (item.GetCollectableType() == collectableType)
+            {
+                item.gameObject.SetActive(false); //different scores for different items can be done here
+            }
+            else
+            {
+                item.gameObject.SetActive(false);
+            }
+        }
+    }
 
- 
+
 }
