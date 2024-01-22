@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0a1530c1dd2c4948aa574861310885d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftBound: -20
 --- !u!95 &8149405261734084161
 Animator:
   serializedVersion: 5
@@ -135,15 +134,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2485151772189422482, guid: 69950d51503b318439cefc19bd2964cd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6042290755525541575, guid: 69950d51503b318439cefc19bd2964cd, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.11878001
+      value: 0.015891578
       objectReference: {fileID: 0}
     - target: {fileID: 6042290755525541575, guid: 69950d51503b318439cefc19bd2964cd, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.6249999
+      value: 0.08361874
+      objectReference: {fileID: 0}
+    - target: {fileID: 6042290755525541575, guid: 69950d51503b318439cefc19bd2964cd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.13379
       objectReference: {fileID: 0}
     - target: {fileID: 6042290755525541575, guid: 69950d51503b318439cefc19bd2964cd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -151,7 +154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6042290755525541575, guid: 69950d51503b318439cefc19bd2964cd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.03654749
+      value: 0.037781
       objectReference: {fileID: 0}
     - target: {fileID: 6042290755525541575, guid: 69950d51503b318439cefc19bd2964cd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -217,4 +220,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiManager: {fileID: 0}
   collectScript: {fileID: 0}
+  playerMovement: {fileID: 0}
   pointValue: 1
+  collectableType: 3

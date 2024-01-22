@@ -9,10 +9,10 @@ public class CollectScript : MonoBehaviour
     private PlayerMovement player;
     [SerializeField] private Transform pickUpTransform;
 
-    private Collectables pickedUpCollectable = Collectables.None;
+    private CollecatableBehaviour pickedUpCollectableBehaviour = null;
 
     public bool hasCollectable;
-    public Collectables GetPickedUpCollectable() { return pickedUpCollectable; }
+    public CollecatableBehaviour GetPickedUpCollectableBehaviour() { return pickedUpCollectableBehaviour; }
     void Start()
     {
         player = GetComponentInParent<PlayerMovement>();
@@ -26,9 +26,12 @@ public class CollectScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Collectable") && !hasCollectable) 
-        {
-           pickedUpCollectable = other.GetComponent<CollecatableBehaviour>().GetCollectableType();
-            player.SetCollectable(pickedUpCollectable);
+        {   
+            hasCollectable = true;
+            pickedUpCollectableBehaviour = other.GetComponent<CollecatableBehaviour>();
+            player.SetCollectable(pickedUpCollectableBehaviour.GetCollectableType());
+
+            other.gameObject.SetActive(false); //make collectables go off
         }
 
     }

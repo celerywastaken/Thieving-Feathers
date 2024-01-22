@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0a1530c1dd2c4948aa574861310885d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftBound: -20
 --- !u!1001 &9016822414343462841
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -187,4 +186,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiManager: {fileID: 0}
   collectScript: {fileID: 0}
+  playerMovement: {fileID: 0}
   pointValue: 1
+  collectableType: 1

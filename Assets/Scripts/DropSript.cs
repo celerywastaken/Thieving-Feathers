@@ -24,14 +24,16 @@ public class DropSript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Nest"))
-        {
-            player.DropCollectable(collectScript.GetPickedUpCollectable());
+        {   
+            if(!collectScript.hasCollectable) { return; }
+           
+            player.DropCollectable(collectScript.GetPickedUpCollectableBehaviour().GetCollectableType());
             // Destroy(gameObject);
 
             //Sets the hasCollectable bool to false, so we may pick up another Item.
             collectScript.hasCollectable = false;
             //Updates the Score 
-            uiManager.UpdateScore(pointValue);
+            uiManager.UpdateScore(collectScript.GetPickedUpCollectableBehaviour().GetPointValue());
         }
     }
 }
