@@ -42,6 +42,8 @@ public class SpawnManager : MonoBehaviour
             GameObject dequedObject = pool.Dequeue();
             dequedObject.transform.position = spawnPos;
             dequedObject.SetActive(true);
+
+            dequedObject.transform.GetChild(0).gameObject.SetActive(true);
             return dequedObject;
         }
         else

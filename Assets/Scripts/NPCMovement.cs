@@ -18,12 +18,13 @@ public class NPCMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
         Movement();
     }
 
     private void Movement()
-    {
+    {   
+
         //float randomSpeed = Random.Range(minspeed, maxspeed);
         transform.Translate(transform.right * -1 * randomSpeed * Time.deltaTime);
 

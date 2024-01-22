@@ -99,8 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0a1530c1dd2c4948aa574861310885d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  leftBound: -20
 --- !u!95 &4252305093921344368
 Animator:
   serializedVersion: 5
@@ -207,8 +205,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f40b4c1179c0d4146a5917097181b6f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiManager: {fileID: 0}
   collectScript: {fileID: 0}
+  playerMovement: {fileID: 0}
   pointValue: 3
+  collectableType: 2
 --- !u!4 &2812738508941091535 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4615622505834375688, guid: 4aff483d5db32ba4fa0136990c007298, type: 3}
