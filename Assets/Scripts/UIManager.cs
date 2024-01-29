@@ -29,6 +29,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject endOfTimerPanel;
     [SerializeField] private Button retryBtn;
     [SerializeField] private Button homeBtn;
+
+    [SerializeField] private AudioSource bgMusic;
+    [SerializeField] private AudioSource timerOverMusic;
    
 
     void Start()
@@ -65,6 +68,8 @@ public class UIManager : MonoBehaviour
                 timerIsRunning = false;
                 spawnManger.isGameActive = false;
                 yourScoreText.text = "Score:" + score;
+                bgMusic.Stop();
+                timerOverMusic.Play();
 
                 //set highscore
                 if (highscore < score)
