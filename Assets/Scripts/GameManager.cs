@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public Button playButton;
+    
+    [SerializeField] Animator transitionAnim;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,15 @@ public class GameManager : MonoBehaviour
     }
     public void StartGame()
     {
-        SceneManager.LoadScene("Main", LoadSceneMode.Single);
+        StartCoroutine(LoadScene());
+        DontDestroyOnLoad(this.gameObject);
+    }
+
+   public  IEnumerator LoadScene()
+    {
+        transitionAnim.SetTrigger("End");
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        transitionAnim.SetTrigger("Start");
     }
 }
