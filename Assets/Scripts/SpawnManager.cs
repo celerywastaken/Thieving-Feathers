@@ -18,11 +18,6 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine(SpawnNpcs());
     }
 
-    void Update()
-    {
-        
-    }
-
     IEnumerator SpawnNpcs()
     {
         // This coroutine runs indefinitely, spawning targets at regular intervals.

@@ -8,49 +8,52 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [Header("SCORE")]
-    public TextMeshProUGUI scoreText;
-    private int score;
-    //prevents the Score from going below 0
-    public int Score
-    {get{return score;} set{if (value < 0) { score = 0; }}}
+    public TextMeshProUGUI scoreText;    // Reference to the score text UI element
+    private int score;                  // Current score value
+
+    public int Score    //prevents the Score from going below 0
+    { get{return score;} set{if (value < 0) { score = 0; }}}
 
     [Header("Highscore")]
-    private int highscore;
-    [SerializeField] TextMeshProUGUI highScoreText;
-    public TextMeshProUGUI yourScoreText;
+    private int highscore;                                   // Current highscore value
+    [SerializeField] TextMeshProUGUI highScoreText;         // Reference to the highscore text UI element
+    public TextMeshProUGUI yourScoreText;                  // Reference to the "Your Score" text UI element
 
 
     [Header("Timer")]
-    public TextMeshProUGUI timerText;
-    private float timeRemaining = 60;
-    private bool timerIsRunning = false;
+    public TextMeshProUGUI timerText;        // Reference to the timer text UI element
+    private float timeRemaining = 60;       // Initial time remaining
+    private bool timerIsRunning = false;   // Indicates if the timer is running
 
-    [SerializeField] private SpawnManager spawnManger;
-    [SerializeField] private GameObject endOfTimerPanel;
-    [SerializeField] private Button retryBtn;
-    [SerializeField] private Button homeBtn;
+    [SerializeField] private SpawnManager spawnManger;              // Indicates if the timer is running
+    [SerializeField] private GameObject endOfTimerPanel;           // Reference to the end of timer panel GameObject
+    [SerializeField] private Button retryBtn;                     // Reference to the retry button
+    [SerializeField] private Button homeBtn;                     // Reference to the home button
 
-    [SerializeField] private AudioSource bgMusic;
-    [SerializeField] private AudioSource timerOverMusic;
-   
+    [SerializeField] private AudioSource bgMusic;              // Reference to the background music AudioSource
+    [SerializeField] private AudioSource timerOverMusic;      // Reference to the timer over music AudioSource
+
 
     void Start()
     {
-        highscore = PlayerPrefs.GetInt("highscore",0);
+        // Get the highscore from PlayerPrefs, default to 0 if not found
+        highscore = PlayerPrefs.GetInt("highscore",0);  
+
         spawnManger = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
         timerIsRunning = true;
         score = 0;
+
+        // Update the score UI
         UpdateScore(0);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Timer();
-
+        // Update the timer
+        Timer();    
     }
 
-    private void Timer()
+    private void Timer()    // Update the timer and handle end of timer conditions
     {
         if (timerIsRunning)
         {
@@ -62,7 +65,7 @@ public class UIManager : MonoBehaviour
 
             else
             {
-                Debug.Log("Time has run out!");
+                // Display end of timer panel and handle end of game conditions
                 endOfTimerPanel.SetActive(true);
                 timeRemaining = 0;
                 timerIsRunning = false;
@@ -81,24 +84,20 @@ public class UIManager : MonoBehaviour
             }
         }
     }
-    public void UpdateScore(int scoreToAdd)
+    public void UpdateScore(int scoreToAdd) // Update the score and the score UI
     {
         //set normal score
         score += scoreToAdd;
         scoreText.text = "Score:" + score;
 
-       
-        
     }
 
-    public void ReloadGame()
+    public void ReloadGame()    // Reload the game scene
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Debug.Log("This Button is working");
-
     }
 
-    public void HomeScreen()
+    public void HomeScreen()    // Load the home screen scene
     {
         SceneManager.LoadSceneAsync("MainMenu");
     }

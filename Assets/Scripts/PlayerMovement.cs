@@ -24,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
-  
     }
 
     void Update()
@@ -35,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void GetInput()
     {
+        // gets the Inputs from the InputManager
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
     }
@@ -67,7 +67,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void CollectItem(Transform itemToCollect)
     {
-        Debug.Log("player collect function");
 
         //Sets the Collected Items Position to the PickUp Position
         itemToCollect.position = pickUpTransform.position;

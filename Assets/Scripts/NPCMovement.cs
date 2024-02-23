@@ -11,6 +11,7 @@ public class NPCMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //spawn at a random speed
         randomSpeed = Random.Range(minspeed, maxspeed);
     }
 
